@@ -42,6 +42,14 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "Audit.NET": {
+              "target": "Package",
+              "version": "[16.1.5, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
             "Microsoft.AspNetCore.Authorization": {
               "target": "Package",
               "version": "[3.1.8, )"
@@ -57,6 +65,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
+            },
+            "Rebus": {
+              "target": "Package",
+              "version": "[6.4.1, )"
             },
             "Serilog": {
               "target": "Package",
@@ -89,6 +101,10 @@
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[8.4.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "Serilog.Sinks.Splunk": {
               "target": "Package",

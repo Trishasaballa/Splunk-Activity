@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Serilog;
 
 namespace WebApplication.Controllers
@@ -17,9 +15,9 @@ namespace WebApplication.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger logger)
         {
             _logger = logger;
         }
@@ -27,7 +25,7 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.LogInformation("hello");
+            _logger.Information("hello", Summaries);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

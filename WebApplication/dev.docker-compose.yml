@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  splunk:
+    image: splunk/splunk
+    networks:
+      - nautilus-network    
+    ports:
+      - "8000:8000"
+      - "8088:8088"
+      - "8089:8089"
+      - "9997"             
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "changeadmin"
+      
+networks:
+  nautilus-network:
+    driver: bridge        
