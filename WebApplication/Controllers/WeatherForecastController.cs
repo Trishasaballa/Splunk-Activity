@@ -13,6 +13,7 @@ namespace WebApplication.Controllers
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+          
         };
 
         private readonly ILogger _logger;
@@ -25,7 +26,7 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.Information("hello", Summaries);
+            _logger.Information("hello {summaries}",Summaries);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -34,6 +35,7 @@ namespace WebApplication.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+
             
         }
     }

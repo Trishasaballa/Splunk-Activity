@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Formatting.Json;
 
 namespace WebApplication
 {
@@ -26,18 +25,12 @@ namespace WebApplication
             Log.Logger = new LoggerConfiguration()
                           .ReadFrom.Configuration(Configuration)
                           .Enrich.FromLogContext()
-                          .WriteTo.EventCollector("http://localhost:8088", "0b7c9caa-5603-4260-af1b-f948435605e6")
-                          .WriteTo.Console(new JsonFormatter())
+                          .WriteTo.EventCollector("http://localhost:8088", "f3ef9b62-c0b9-4edd-b506-5b4ad2823aca")
+                          .WriteTo.Console()
                           .CreateLogger();
-
-            services.AddLogging(configure => configure.AddSerilog());
             services.AddSingleton(Log.Logger);
             services.AddAuthorization();
             services.AddControllers();
-            
-
-
-
         }
         
 
